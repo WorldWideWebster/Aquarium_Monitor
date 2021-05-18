@@ -11,6 +11,9 @@
 #define BAUD_RATE DEFAULT_BAUD
 #define BAUD_PRESCALER  (((F_CPU / (BAUD_RATE * 16UL))) - 1)
 
+/**
+ * @brief
+ */
 class Uart
 {
 public:

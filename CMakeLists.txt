@@ -18,6 +18,8 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CMakeListsUser.txt)
 include(CMakeListsUser.txt)
 endif()
 
+add_subdirectory(lib)
+
 add_custom_target(
     Production ALL
     COMMAND platformio -c clion run "$<$<NOT:$<CONFIG:All>>:-e${CMAKE_BUILD_TYPE}>"
@@ -30,4 +32,7 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+
 add_executable(Z_DUMMY_TARGET ${SRC_LIST})
+
+target_link_libraries(Z_DUMMY_TARGET ds18b20-lib)
