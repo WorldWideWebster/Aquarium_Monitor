@@ -28,11 +28,6 @@
 #include <DallasTemperature.h>
 #define ONE_WIRE_BUS 8
 
-#include <avr/io.h>
-#include <util/delay.h>
-#include <stdio.h>
-#include <ds18b20/ds18b20.h>
-
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
@@ -47,21 +42,10 @@ void setup()
 	sensors.begin();
 
 }
-int16_t temp;
 
 void loop()
 {
-//	//Start conversion (without ROM matching)
-//	ds18b20convert( &PORTB, &DDRB, &PINB, ( 1 << 0 ), NULL );
-//
-//	//Delay (sensor needs time to perform conversion)
-//	_delay_ms( 1000 );
-//
-//	//Read temperature (without ROM matching)
-//	ds18b20read( &PORTB, &DDRB, &PINB, ( 1 << 0 ), NULL, &temp );
 
-
-// PROTOTYPE TEMPERATURE CODE
 	sensors.requestTemperatures(); // Send the command to get temperature readings
 	Serial.print("Temperature is: ");
 	Serial.print(sensors.getTempFByIndex(0));
